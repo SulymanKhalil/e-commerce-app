@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,11 +6,7 @@ import { DLT, ADD, REMOVE } from "../redux/actions/action";
 const CardsDetails = () => {
 
   const { id } = useParams();
-  // console.log(id)
-
   const getdata = useSelector((state) => state.cartreducer.carts);
-  // console.log(getdata);
-
   const history = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,7 +25,7 @@ const CardsDetails = () => {
     dispatch(REMOVE(item));
   };
 
-  const data = getdata.filter((e) => e.id == id);
+  const data = getdata.filter((e) => e.id === Number(id));
 
   return (
     <>
@@ -42,7 +37,7 @@ const CardsDetails = () => {
               return (
                 <>
                   <div className="items_img">
-                    <img src={el.imgdata} />
+                    <img src={el.imgdata} alt={el.rname || "Product"} />
                   </div>
                   <div className="details">
                     <Table>

@@ -10,12 +10,8 @@ import { DLT } from "../redux/actions/action";
 
 const Header = () => {
   const [price, setPrice] = useState(0);
-  
   const getdata = useSelector((state) => state.cartreducer.carts);
-  // console.log(getdata);
-
   const dispatch = useDispatch()
-  
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -39,7 +35,7 @@ const Header = () => {
 
   useEffect(() => {
     total();
-  }, [total]);
+  }, [carts]);
 
   return (
     <>
@@ -102,6 +98,7 @@ const Header = () => {
                               <img
                                 src={e.imgdata}
                                 style={{ width: "5rem", height: "5rem" }}
+                                alt={e.rname || "Product"}
                               />
                             </NavLink>
                           </td>
@@ -160,6 +157,7 @@ const Header = () => {
                 src="./cart.gif"
                 className="emptycart_img"
                 style={{ width: "5rem", padding: 10 }}
+                alt={e.rname || "Product"}
               />
             </div>
           )}
