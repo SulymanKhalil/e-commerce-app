@@ -25,17 +25,16 @@ const Header = () => {
     dispatch(DLT(id))
   }
 
-  const total = () => {
-    let price = 0;
-    getdata.map((el, k) => {
-      price = el.price * el.qnty + price;
-    });
-    setPrice(price);
-  };
-
   useEffect(() => {
-    total();
-  }, [total]);
+    let price = 0;
+  
+    getdata.forEach((el) => {
+      price += el.price * el.qnty;
+    });
+  
+    setPrice(price);
+  }, [getdata]);
+  
 
   return (
     <>
