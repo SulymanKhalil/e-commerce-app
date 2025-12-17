@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Cardsdata from "./CardsData";
 import "./style.css";
 import { useDispatch } from "react-redux";
