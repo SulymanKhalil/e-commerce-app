@@ -35,7 +35,7 @@ const Header = () => {
 
   useEffect(() => {
     total();
-  }, [carts]);
+  }, [total]);
 
   return (
     <>
@@ -157,7 +157,7 @@ const Header = () => {
                 src="./cart.gif"
                 className="emptycart_img"
                 style={{ width: "5rem", padding: 10 }}
-                alt={e.rname || "Product"}
+                alt="Product"
               />
             </div>
           )}
